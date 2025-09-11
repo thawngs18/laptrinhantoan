@@ -13,3 +13,4 @@ if len(so_chia_het_cho_5) > 0:
     print("cac so nhi phan chia het cho 5 la: ",ketqua)
 else:
     print("khong co so nhi phan chia het cho 5")
+    
