@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login/Register OTP</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms" id="forms">
+        <!-- Login OTP -->
+        <form method="POST" action="{{ url_for('login') }}">
+          <h2>Login OTP</h2>
+          <input type="text" name="phone" placeholder="+849xxxxxxxx" required />
+          <button type="submit">Gửi OTP</button>
+          <div class="toggle">
+            <p>Chưa có tài khoản? <a onclick="showRegister()">Đăng ký</a></p>
+          </div>
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <p class="error">{{ messages[0] }}</p>
+          {% endif %} {% endwith %}
+        </form>
+
+        <!-- Register -->
+        <form method="POST" action="{{ url_for('register') }}">
+          <h2>Đăng ký</h2>
+          <input type="text" name="name" placeholder="Họ và Tên" required />
+          <input type="text" name="phone" placeholder="+849xxxxxxxx" required />
+          <button type="submit">Đăng ký</button>
+          <div class="toggle">
+            <p>Đã có tài khoản? <a onclick="showLogin()">Login OTP</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const forms = document.getElementById("forms");
+      function showRegister() {
+        forms.style.transform = "translateX(-350px)";
+      }
+      function showLogin() {
+        forms.style.transform = "translateX(0)";
+      }
+    </script>
+  </body>
+</html>
