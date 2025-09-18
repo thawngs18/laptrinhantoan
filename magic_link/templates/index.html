@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Magic Link Auth</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Flash message nằm ngoài wrapper -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flash-message">
+      {% for msg in messages %}
+      <div>{{ msg }}</div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+
+    <div class="wrapper">
+      <div class="card-switch">
+        <label class="switch">
+          <input type="checkbox" class="toggle" />
+          <span class="slider"></span>
+          <span class="card-side"></span>
+
+          <div class="flip-card__inner">
+            <!-- LOGIN FORM -->
+            <div class="flip-card__front">
+              <div class="title">Log in</div>
+              <form
+                class="flip-card__form"
+                method="POST"
+                action="{{ url_for('send_link') }}"
+              >
+                <input
+                  class="flip-card__input"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  required
+                />
+                <button class="button">
+                  Login with Magic Link
+                  <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- SIGNUP FORM -->
+            <div class="flip-card__back">
+              <div class="title">Sign up</div>
+              <form
+                class="flip-card__form"
+                method="POST"
+                action="{{ url_for('register') }}"
+              >
+                <input
+                  class="flip-card__input"
+                  name="name"
+                  placeholder="Name"
+                  type="text"
+                  required
+                />
+                <input
+                  class="flip-card__input"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  required
+                />
+                <button class="button">
+                  Register
+                  <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>
