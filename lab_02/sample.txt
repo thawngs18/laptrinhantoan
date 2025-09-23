@@ -1,0 +1,10 @@
+Thực hành kiểm thử bảo mật hệ thống.
+Dữ liệu trong file này chỉ mang tính minh họa cho việc học tập.
+Hash function giúp kiểm tra tính toàn vẹn dữ liệu.
+Một ký tự thay đổi sẽ dẫn đến giá trị băm hoàn toàn khác.
+Điều này được gọi là tính chất avalanche trong hàm băm.
+Các thuật toán phổ biến: MD5, SHA-1, SHA-256, SHA-512.
+Ứng dụng: lưu mật khẩu, xác thực tệp tải về, chữ ký số.
+Việc dùng hàm băm trong thương mại điện tử giúp đảm bảo an toàn giao dịch.
+Khi bạn lưu file log, có thể tạo thêm một file hash để kiểm tra sau này.
+An toàn thông tin luôn cần sự cẩn thận và kiến thức nền tảng.

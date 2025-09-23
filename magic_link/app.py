@@ -12,7 +12,7 @@ s = URLSafeTimedSerializer(app.secret_key)
 
 # Cấu hình Gmail SMTP
 SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
+SMTP_PORT = 465
 EMAIL_ADDRESS = "theunderdog0108@gmail.com"     
 EMAIL_PASSWORD = "wnzj nfva delj lsba"  
 
