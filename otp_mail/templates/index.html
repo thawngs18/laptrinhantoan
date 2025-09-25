@@ -3,29 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <title>OTP Login Demo</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h2>Login bằng OTP (Email)</h2>
+    <div class="container">
+      <h2>Login bằng OTP (Email)</h2>
 
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul>
-      {% for msg in messages %}
-      <li>{{ msg }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %} {% if session.user %}
-    <p>Xin chào: {{ session.user }}</p>
-    <a href="{{ url_for('logout') }}">Logout</a>
-    {% elif session.pending_email %}
-    <form action="{{ url_for('verify') }}" method="post">
-      <input type="text" name="otp" placeholder="Nhập OTP" required />
-      <button type="submit">Xác thực</button>
-    </form>
-    {% else %}
-    <form method="post">
-      <input type="email" name="email" placeholder="Nhập email" required />
-      <button type="submit">Gửi OTP</button>
-    </form>
-    {% endif %}
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul>
+        {% for msg in messages %}
+        <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %} {% if session.user %}
+      <p>Xin chào: {{ session.user }}</p>
+      <a href="{{ url_for('logout') }}">Logout</a>
+      {% elif session.pending_email %}
+      <form action="{{ url_for('verify') }}" method="post">
+        <input type="text" name="otp" placeholder="Nhập OTP" required />
+        <button type="submit">Xác thực</button>
+      </form>
+      {% else %}
+      <form method="post">
+        <input type="email" name="email" placeholder="Nhập email" required />
+        <button type="submit">Gửi OTP</button>
+      </form>
+      {% endif %}
+    </div>
   </body>
 </html>
